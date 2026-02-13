@@ -57,7 +57,7 @@ export function Hero() {
   return (
     <section className="relative h-[560px] w-full overflow-hidden md:h-[650px] lg:h-[700px]">
       <Image
-        src="/images/hero.jpg"
+        src="/hero.jpg"
         alt="Enterprise technology solutions"
         fill
         className="object-cover"

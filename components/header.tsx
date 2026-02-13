@@ -74,7 +74,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src="/images/logo-transparent.png"
+            src="/logo.jpeg"
             alt="Malaysian Business Machines Logo"
             width={200}
             height={52}
