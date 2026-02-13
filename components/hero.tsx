@@ -19,6 +19,7 @@ const slides = [
       "Enabling next-gen technology solutions for healthcare, banking, insurance, and more.",
     cta: "Explore Solutions",
     href: "#solutions",
+    
   },
   {
     title: "EMPOWERING BUSINESSES ACROSS MALAYSIA & BEYOND",
