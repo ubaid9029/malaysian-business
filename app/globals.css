@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 216 50% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 216 50% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 50% 16%;
+    --primary: 216 55% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 30% 96%;
+    --secondary-foreground: 216 50% 16%;
+    --muted: 216 20% 96%;
+    --muted-foreground: 216 15% 50%;
+    --accent: 16 85% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 216 20% 90%;
+    --input: 216 20% 90%;
+    --ring: 216 55% 18%;
+    --chart-1: 216 55% 18%;
+    --chart-2: 16 85% 53%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reveal animation helpers */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.stagger-children.is-visible > *:nth-child(1) { animation: stagger-fade-up 0.6s 0.1s ease-out forwards; }
+.stagger-children.is-visible > *:nth-child(2) { animation: stagger-fade-up 0.6s 0.2s ease-out forwards; }
+.stagger-children.is-visible > *:nth-child(3) { animation: stagger-fade-up 0.6s 0.3s ease-out forwards; }
+.stagger-children.is-visible > *:nth-child(4) { animation: stagger-fade-up 0.6s 0.4s ease-out forwards; }
+.stagger-children.is-visible > *:nth-child(5) { animation: stagger-fade-up 0.6s 0.5s ease-out forwards; }
+.stagger-children.is-visible > *:nth-child(6) { animation: stagger-fade-up 0.6s 0.6s ease-out forwards; }
+.stagger-children.is-visible > *:nth-child(7) { animation: stagger-fade-up 0.6s 0.7s ease-out forwards; }
+
+@keyframes stagger-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
