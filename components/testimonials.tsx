@@ -23,6 +23,18 @@ const testimonials = [
     role: "Executive",
     company: "Leading MNC in Asia Pacific",
   },
+   {
+    quote:
+      "You guys rock, we went live with 100% financial accuracy!! Excellent work!",
+    role: "CIO",
+    company: "Insurance Company",
+  },
+  {
+    quote:
+      "A strategic partner, who executed projects on time with high quality and brings innovation to the table on how we can meet our business goals.",
+    role: "Executive",
+    company: "Leading MNC in Asia Pacific",
+  },
 ]
 
 export function Testimonials() {
@@ -47,22 +59,22 @@ export function Testimonials() {
               What Our Clients Say
             </h2>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <button
               onClick={() => setPage(Math.max(0, page - 1))}
               disabled={page === 0}
-              className="rounded-full border border-border p-2.5 text-muted-foreground transition-all duration-300 hover:border-accent hover:bg-accent/10 hover:text-accent disabled:opacity-30"
+              className="rounded-full border-2 border-accent bg-white/90 p-3 text-accent shadow-lg transition-all duration-300 hover:bg-accent hover:text-white hover:scale-110 focus:ring-2 focus:ring-accent/60 disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Previous testimonials"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={() => setPage(Math.min(maxPage, page + 1))}
               disabled={page === maxPage}
-              className="rounded-full border border-border p-2.5 text-muted-foreground transition-all duration-300 hover:border-accent hover:bg-accent/10 hover:text-accent disabled:opacity-30"
+              className="rounded-full border-2 border-accent bg-white/90 p-3 text-accent shadow-lg transition-all duration-300 hover:bg-accent hover:text-white hover:scale-110 focus:ring-2 focus:ring-accent/60 disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Next testimonials"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </button>
           </div>
         </div>

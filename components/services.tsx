@@ -31,7 +31,7 @@ const services = [
       "Predictive Analytics & ML Models",
       "Data Governance & Quality Frameworks",
     ],
-    image: "/images/service-data-analytics.jpg",
+    image: "/images/data-analysis-skills-duties-responsibilities.jpeg",
     icon: Database,
     accent: "from-blue-600 to-cyan-500",
     href: "#",

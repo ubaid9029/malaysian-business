@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const articles = [
@@ -11,7 +12,7 @@ const articles = [
     title: "Unleashing the Power of Partnerships: Insights into the Future of Tech Alliances",
     excerpt:
       "The technology sector is a rapidly evolving landscape, characterized by regulatory changes and innovation.",
-    image: "/images/news-1.jpg",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     href: "#",
   },
   {
@@ -19,7 +20,7 @@ const articles = [
     title: "Winning in the New Normal for the Financial Services Industry",
     excerpt:
       "The banking and financial services industry is facing a vast and complex set of challenges.",
-    image: "/images/news-2.jpg",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
     href: "#",
   },
   {
@@ -27,7 +28,7 @@ const articles = [
     title: "Applied AI for Real-Time & Accurate NAV Calculation",
     excerpt:
       "Client is a prominent Fortune 500 brand with a global presence, providing a wide range of financial services.",
-    image: "/images/news-3.jpg",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
     href: "#",
   },
 ]
@@ -36,12 +37,20 @@ export function News() {
   const { ref, isVisible } = useScrollReveal()
 
   return (
-    <section className="bg-background py-20 md:py-28">
+    <motion.section
+      className="bg-background py-20 md:py-28"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div ref={ref} className="mx-auto max-w-7xl px-6">
-        <div
-          className={`mb-12 flex items-end justify-between transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+        <motion.div
+          className={`mb-12 flex items-end justify-between`}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
         >
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -65,13 +74,17 @@ export function News() {
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         <div className={`grid grid-cols-1 gap-6 md:grid-cols-3 stagger-children ${isVisible ? "is-visible" : ""}`}>
-          {articles.map((article) => (
-            <article
+          {articles.map((article, i) => (
+            <motion.article
               key={article.title}
               className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.15 + i * 0.1, ease: "easeOut" }}
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -100,10 +113,10 @@ export function News() {
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

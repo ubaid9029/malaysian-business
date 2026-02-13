@@ -64,11 +64,11 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500
+        ${scrolled
           ? "bg-primary/95 shadow-lg shadow-primary/20 backdrop-blur-md"
-          : "bg-primary"
-      }`}
+          : "bg-transparent"}
+      `}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         {/* Logo */}
@@ -81,6 +81,7 @@ export function Header() {
             className="h-11 w-auto brightness-0 invert transition-transform duration-300 group-hover:scale-105"
             priority
           />
+          <span className="text-white">Malaysian Business Machines</span>
         </Link>
 
         {/* Desktop Nav */}

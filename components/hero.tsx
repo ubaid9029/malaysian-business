@@ -19,7 +19,6 @@ const slides = [
       "Enabling next-gen technology solutions for healthcare, banking, insurance, and more.",
     cta: "Explore Solutions",
     href: "#solutions",
-    
   },
   {
     title: "EMPOWERING BUSINESSES ACROSS MALAYSIA & BEYOND",
@@ -32,139 +31,103 @@ const slides = [
 
 export function Hero() {
   const [current, setCurrent] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(true)
 
-  const goTo = useCallback(
-    (idx: number) => {
-      setIsAnimating(false)
-      setTimeout(() => {
-        setCurrent(idx)
-        setIsAnimating(true)
-      }, 100)
-    },
-    []
-  )
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % slides.length)
+  }, [])
 
-  const prev = () => goTo((current - 1 + slides.length) % slides.length)
-  const next = () => goTo((current + 1) % slides.length)
+  const prev = useCallback(() => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
+  }, [])
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      goTo((current + 1) % slides.length)
-    }, 6000)
+    const timer = setInterval(next, 6000)
     return () => clearInterval(timer)
-  }, [current, goTo])
+  }, [next])
 
   return (
-    <section className="relative h-[560px] w-full overflow-hidden md:h-[650px] lg:h-[700px]">
+    <section className="relative h-screen w-full overflow-hidden bg-black">
+      {/* Background Image */}
       <Image
-        src="/hero.jpg"
+        src="/test.jpg"
         alt="Enterprise technology solutions"
         fill
-        className="object-cover"
+        className="object-cover scale-105 transition-transform duration-[10000ms] ease-out"
         priority
       />
-      {/* Overlay with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
 
-      {/* Decorative grid pattern */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(to right, hsl(0 0% 100%) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* Dark futuristic overlay */}
+      <div className="absolute inset-0 bg-black/50" />
 
+      {/* Animated glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -left-40 h-[500px] w-[500px] bg-accent/30 blur-[140px] animate-pulse rounded-full" />
+        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] bg-primary/40 blur-[120px] animate-pulse rounded-full" />
+      </div>
+
+      {/* Content */}
       <div className="relative mx-auto flex h-full max-w-7xl items-center px-6">
-        <div className="max-w-2xl">
-          {/* Animated accent line */}
-          <div
-            className={`mb-6 h-1 w-16 rounded-full bg-accent transition-all duration-700 ${
-              isAnimating ? "w-16 opacity-100" : "w-0 opacity-0"
-            }`}
-          />
-
+        <div className="max-w-2xl space-y-6">
           <h1
-            className={`mb-5 font-heading text-3xl font-bold leading-tight text-primary-foreground transition-all duration-700 md:text-4xl lg:text-5xl xl:text-6xl ${
-              isAnimating
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
+            key={current}
+            className="animate-fade-in-up text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
           >
-            <span className="text-balance">{slides[current].title}</span>
+            {slides[current].title}
           </h1>
+
           <p
-            className={`mb-8 max-w-lg text-base leading-relaxed text-primary-foreground/80 transition-all delay-100 duration-700 md:text-lg ${
-              isAnimating
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
+            key={`desc-${current}`}
+            className="animate-fade-in-up text-lg text-white/70"
           >
             {slides[current].description}
           </p>
-          <div
-            className={`flex items-center gap-4 transition-all delay-200 duration-700 ${
-              isAnimating
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
-          >
+
+          <div className="flex items-center gap-4 pt-4">
             <Link
               href={slides[current].href}
-              className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground transition-all duration-300 hover:shadow-lg hover:shadow-accent/30"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-semibold text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
             >
               {slides[current].cta}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
+
             <Link
               href="#industries"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-primary-foreground/30 px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:border-primary-foreground hover:bg-primary-foreground/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10"
             >
               Explore Industries
             </Link>
           </div>
         </div>
 
-        {/* Arrows */}
-        <div className="absolute right-6 top-1/2 flex -translate-y-1/2 flex-col gap-3">
+        {/* Navigation Arrows */}
+        <div className="absolute right-6 top-1/2 flex -translate-y-1/2 flex-col gap-4">
           <button
             onClick={prev}
-            className="rounded-full border border-primary-foreground/20 bg-primary-foreground/10 p-2.5 text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary-foreground/40 hover:bg-primary-foreground/20"
-            aria-label="Previous slide"
+            className="rounded-full bg-white/10 p-3 text-white backdrop-blur-md transition hover:bg-white/20"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft />
           </button>
           <button
             onClick={next}
-            className="rounded-full border border-primary-foreground/20 bg-primary-foreground/10 p-2.5 text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary-foreground/40 hover:bg-primary-foreground/20"
-            aria-label="Next slide"
+            className="rounded-full bg-white/10 p-3 text-white backdrop-blur-md transition hover:bg-white/20"
           >
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight />
           </button>
         </div>
 
-        {/* Progress Dots */}
-        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-3">
+        {/* Dots */}
+        <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3">
           {slides.map((_, i) => (
             <button
               key={i}
-              onClick={() => goTo(i)}
-              className="group relative h-3 w-3"
-              aria-label={`Go to slide ${i + 1}`}
-            >
-              <span
-                className={`block h-full w-full rounded-full transition-all duration-500 ${
-                  i === current
-                    ? "scale-100 bg-accent"
-                    : "scale-75 bg-primary-foreground/30 group-hover:bg-primary-foreground/50"
-                }`}
-              />
-              {i === current && (
-                <span className="absolute -inset-1 animate-ping rounded-full bg-accent/40" />
-              )}
-            </button>
+              onClick={() => setCurrent(i)}
+              className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                i === current
+                  ? "scale-110 bg-accent shadow-[0_0_12px_rgba(255,255,255,0.7)]"
+                  : "bg-white/30"
+              }`}
+            />
           ))}
         </div>
       </div>

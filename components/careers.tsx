@@ -66,7 +66,7 @@ export function Careers() {
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
-                src="/images/team.jpg"
+                src="/images/inovators.jpeg"
                 alt="Team of innovators at Malaysian Business Machines"
                 fill
                 className="object-cover"

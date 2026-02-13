@@ -18,15 +18,15 @@ import {
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const industries = [
-  { icon: Heart, label: "Healthcare", description: "Seamlessly delivering end-to-end digital health experiences", image: "/images/healthcare.jpg" },
-  { icon: Landmark, label: "Banking & Financial Services", description: "Accelerating digital-first banking transformation", image: "/images/healthcare.jpg" },
-  { icon: Shield, label: "Insurance", description: "Modernizing insurance with AI-driven solutions", image: "/images/healthcare.jpg" },
-  { icon: Radio, label: "Telecom", description: "Connecting the future with next-gen telecom solutions", image: "/images/healthcare.jpg" },
-  { icon: FlaskConical, label: "Life Sciences", description: "Powering innovation in life sciences and pharma", image: "/images/healthcare.jpg" },
-  { icon: Cpu, label: "High Technology", description: "Enabling tech leaders with cutting-edge digital solutions", image: "/images/healthcare.jpg" },
-  { icon: Film, label: "Media & Entertainment", description: "Transforming content delivery and audience engagement", image: "/images/healthcare.jpg" },
-  { icon: Building2, label: "Government", description: "Digitizing public services for better citizen experience", image: "/images/healthcare.jpg" },
-  { icon: Factory, label: "Manufacturing", description: "Smart factory solutions for Industry 4.0", image: "/images/healthcare.jpg" },
+  { icon: Heart, label: "Healthcare", description: "Seamlessly delivering end-to-end digital health experiences", image: "/healthcare.jpg" },
+  { icon: Landmark, label: "Banking & Financial Services", description: "Accelerating digital-first banking transformation", image: "/images/finance.jpg" },
+  { icon: Shield, label: "Insurance", description: "Modernizing insurance with AI-driven solutions", image: "/images/insurance.png" },
+  { icon: Radio, label: "Telecom", description: "Connecting the future with next-gen telecom solutions", image: "/images/telecom.jpg" },
+  { icon: FlaskConical, label: "Life Sciences", description: "Powering innovation in life sciences and pharma", image: "/images/LifeSciences.jpg" },
+  { icon: Cpu, label: "High Technology", description: "Enabling tech leaders with cutting-edge digital solutions", image: "/images/high.jpg" },
+  { icon: Film, label: "Media & Entertainment", description: "Transforming content delivery and audience engagement", image: "/images/media.jpeg" },
+  { icon: Building2, label: "Government", description: "Digitizing public services for better citizen experience", image: "/images/government.png" },
+  { icon: Factory, label: "Manufacturing", description: "Smart factory solutions for Industry 4.0", image: "/images/Manufacturing.jpg" },
 ]
 
 export function IndustryFocus() {
@@ -44,7 +44,7 @@ export function IndustryFocus() {
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
             Industry Focus
           </p>
-          <h2 className="mb-4 max-w-xl font-heading text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="mb-4 max-w-xl font-heading text-xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
             <span className="text-balance">
               Purpose-built, next-gen solutions grounded in deep industry expertise
             </span>

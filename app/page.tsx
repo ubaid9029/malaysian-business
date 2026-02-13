@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-[72px]">
+      <main className="">
         <Hero />
         <IndustryFocus />
         <Services />

@@ -44,13 +44,18 @@ export function SiteFooter() {
           {/* Logo + Tagline */}
           <div className="w-full lg:w-1/4">
             <div className="mb-5">
-              <Image
-                src="/images/logo-transparent.png"
-                alt="Malaysian Business Machines Logo"
-                width={200}
-                height={52}
-                className="h-11 w-auto brightness-0 invert"
-              />
+                  {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <Image
+            src="/logo.jpeg"
+            alt="Malaysian Business Machines Logo"
+            width={200}
+            height={52}
+            className="h-11 w-auto brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+            priority
+          />
+          <span className="text-white">Malaysian Business Machines</span>
+        </Link>
             </div>
             <p className="mb-8 text-sm leading-relaxed text-primary-foreground/50">
               Take the first step towards a digitally engineered tomorrow.

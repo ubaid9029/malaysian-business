@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from 'next'
-import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google'
+import { Poppins, Space_Grotesk } from 'next/font/google'
 
 import './globals.css'
 
-const _jakarta = Plus_Jakarta_Sans({
+const _poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-jakarta',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
 })
-const _spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-})
+// const _spaceGrotesk = Space_Grotesk({
+//   subsets: ['latin'],
+//   variable: '--font-space-grotesk',
+// })
 
 export const metadata: Metadata = {
   title: 'Malaysian Business Machines | Enterprise Technology Solutions',
@@ -24,12 +25,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${_jakarta.variable} ${_spaceGrotesk.variable}`}>
+    <html lang="en" className={`${_poppins.variable} `}>
       <body className="font-sans antialiased">{children}</body>
     </html>
-  )
+  );
 }
