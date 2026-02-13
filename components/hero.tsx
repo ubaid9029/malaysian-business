@@ -12,7 +12,6 @@ const slides = [
       "Driving amplification, automation, and acceleration in financial services for future-ready enterprises.",
     cta: "Read More",
     href: "#services",
-    
   },
   {
     title: "TRANSFORMING INDUSTRIES WITH DIGITAL INNOVATION",
