@@ -46,7 +46,7 @@ export function Offices() {
               {/* Rotating Ring */}
               {/* <div className="absolute h-full w-full rounded-full border border-accent/40 animate-spin-slow" /> */}
 
-              <img src="/earth.png" alt="Earth" className="h-400 w-400 drop-shadow-gray/400" />
+              <img src="/earth.png" alt="Earth" className="h-1000 w-1000 drop-shadow-gray/400" />
 
               {/* <div className="absolute bottom-10 text-center">
                 <p className="text-accent text-md uppercase tracking-widest">
