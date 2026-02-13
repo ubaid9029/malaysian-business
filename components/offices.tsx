@@ -4,100 +4,102 @@ import { MapPin, Globe } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const regions = [
-  {
-    region: "Malaysia",
-    cities: ["Kuala Lumpur (HQ)", "Penang", "Johor Bahru", "Kota Kinabalu"],
-  },
-  {
-    region: "Southeast Asia",
-    cities: ["Singapore", "Jakarta", "Bangkok", "Manila"],
-  },
-  {
-    region: "Asia Pacific",
-    cities: ["Hong Kong", "Taipei", "Sydney"],
-  },
-  {
-    region: "Global",
-    cities: ["London", "Dubai"],
-  },
+  { region: "Malaysia" },
+  { region: "UAE" },
+  { region: "Dallas USA" },
+  { region: "India" },
 ]
 
 export function Offices() {
   const { ref, isVisible } = useScrollReveal()
 
   return (
-    <section className="relative overflow-hidden bg-primary py-20 md:py-28">
-      {/* Decorative background */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, hsl(0 0% 100%) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-white py-8">
+      {/* 🌌 Futuristic Background */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-black via-primary/20 to-black" /> */}
 
-      <div ref={ref} className="relative mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-14 lg:flex-row">
-          {/* Left - Globe visualization */}
+      {/* Glow Orbs */}
+      <div className="absolute -top-40 -left-40 h-[500px] w-[500px] bg-accent/20 blur-[140px] rounded-full animate-pulse" />
+      <div className="absolute bottom-0 right-0 h-[400px] w-[400px] bg-primary/20 blur-[120px] rounded-full animate-pulse" />
+
+      {/* Grid Overlay */}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+        }}
+      />
+
+      <div ref={ref} className="relative mx-auto max-w-6xl px-6">
+        <div className="flex flex-col gap-12 lg:flex-row">
+
+          {/* 🌍 Left - Futuristic Globe */}
           <div
             className={`flex w-full items-center justify-center lg:w-1/2 transition-all duration-700 ${
-              isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+              isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
             }`}
           >
-            <div className="relative flex h-72 w-full items-center justify-center rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur-sm md:h-96">
-              <div className="text-center">
-                <Globe className="mx-auto mb-5 h-16 w-16 text-accent animate-pulse" />
-                <p className="mb-1 text-lg font-medium text-primary-foreground/80">
-                  Presence Across
+            <div className=" flex flex-col space-y-5 items-center justify-center ">
+              
+              {/* Rotating Ring */}
+              {/* <div className="absolute h-full w-full rounded-full border border-accent/40 animate-spin-slow" /> */}
+
+              <img src="/earth.png" alt="Earth" className="h-400 w-400 drop-shadow-gray/400" />
+
+              {/* <div className="absolute bottom-10 text-center">
+                <p className="text-accent text-md uppercase tracking-widest">
+                  Global Presence
                 </p>
-                <p className="font-heading text-5xl font-bold text-accent md:text-6xl">
+                <p className="text-4xl font-bold text-white">
                   4 Regions
                 </p>
-                <p className="mt-3 text-sm text-primary-foreground/50">
-                  14+ Office Locations Worldwide
-                </p>
-              </div>
-              {/* Decorative dots */}
-              <div className="absolute left-8 top-8 h-2 w-2 rounded-full bg-accent/60 animate-ping" />
-              <div className="absolute right-12 top-16 h-1.5 w-1.5 rounded-full bg-accent/40 animate-ping" style={{ animationDelay: "0.5s" }} />
-              <div className="absolute bottom-12 left-16 h-1.5 w-1.5 rounded-full bg-accent/40 animate-ping" style={{ animationDelay: "1s" }} />
-              <div className="absolute bottom-16 right-8 h-2 w-2 rounded-full bg-accent/60 animate-ping" style={{ animationDelay: "1.5s" }} />
+              </div> */}
             </div>
           </div>
 
-          {/* Right - Office List */}
+          {/* 🏢 Right - Office Cards */}
           <div
             className={`w-full lg:w-1/2 transition-all duration-700 delay-200 ${
-              isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
             }`}
           >
-            <h2 className="mb-10 font-heading text-3xl font-bold text-primary-foreground md:text-4xl">
-              Our Offices
+            <h2 className="mb-10 text-3xl font-bold text-black md:text-4xl">
+              Our Global Offices
             </h2>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-              {regions.map((r) => (
-                <div key={r.region} className="group">
-                  <h3 className="mb-3 flex items-center gap-2 font-heading text-sm font-bold text-accent">
-                    <MapPin className="h-4 w-4" />
-                    {r.region}
-                  </h3>
-                  <ul className="flex flex-col gap-2">
-                    {r.cities.map((city) => (
-                      <li
-                        key={city}
-                        className="text-sm text-primary-foreground/60 transition-colors duration-300 hover:text-primary-foreground"
-                      >
-                        {city}
-                      </li>
-                    ))}
-                  </ul>
+
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {regions.map((r, i) => (
+                <div
+                  key={r.region}
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gray-300 p-6 backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-accent/60 hover:shadow-gray-400"
+                >
+                  {/* Neon border glow */}
+                  <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-accent/50 transition-all duration-300" />
+
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="rounded-full bg-accent/20 p-2 group-hover:bg-accent transition-all duration-300">
+                      <MapPin className="h-5 w-5 text-accent group-hover:text-black transition-all duration-300" />
+                    </div>
+
+                    <h3 className="text-lg font-semibold text-black">
+                      {r.region}
+                    </h3>
+                  </div>
+
+                  <p className="text-sm text-black/60">
+                    Strategic regional hub powering digital transformation.
+                  </p>
+
+                  <div className="absolute top-4 right-4 text-xs text-accent/70">
+                    #{i + 1}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
